@@ -1,0 +1,66 @@
+
+#form{
+	width: 200px;
+	height: 100px;
+	background-image: url(gs.png);
+	position: absolute;
+	top:20%;
+	left: 30%;
+	
+} 
+/*方案一*/
+
+.checkbox,.radio{
+	display: none;
+} 
+/*checkbox的样式*/
+
+.checkbox+label{
+	border:1px solid #fff;
+	padding: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+/*\2714是一个钩*/
+.checkbox:checked+label:after{
+	content: '\2714';
+	color: red;
+	font-size: 20px;
+	position: absolute;
+	top: -4px;
+	left: 2px;
+}
+
+.checkbox:checked+label{
+	border-color: red;
+}
+
+
+ /*radio样式*/
+.radio+label{
+	border:1px solid #fff;
+	padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+/*\2022是一个原点*/
+.radio:checked+label:after{
+	content:'\2022';
+	color: red;
+	font-size: 20px;
+	position: absolute;
+	top: -5px;
+	left: 5px;
+}
+
+.radio:checked+label{
+	border-color: red;
+}
+
+
