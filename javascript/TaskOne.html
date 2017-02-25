@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+    <style type="text/css">
+      .divTag{
+        display: inline-block;
+        padding: 20px;
+        background-color: red;
+        color: #000;
+        margin: 10px;
+      }
+    </style>
+  </head>
+<body>
+
+  <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+  <button id="button">确认填写</button>
+
+  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+<script type="text/javascript">
+
+(function(){
+
+var obj={
+  
+  i:0,
+
+  save:new Array(),
+
+  getText:function(contentNode,showNode){
+    if(this.i===0){
+      showNode.firstChild.nodeValue="";
+    }
+    if(contentNode.value!=""){
+      obj.save.push(contentNode.value);
+      this.render(showNode);
+    }
+    else{
+      alert("输入为空");
+    }
+  },
+
+  render:function(showNode){
+    while(this.save.length){
+      var tag=this.save.shift();
+      this.createTag(showNode,tag);
+    }
+  },
+
+  createTag:function(target,tag){
+    var div=document.createElement("div");
+    var text=document.createTextNode(tag);
+    div.className="divTag";
+    div.appendChild(text);
+    target.appendChild(div);
+    this.i++;
+  },
+
+  deleteTag:function(span,div){
+    span.removeChild(div);
+    this.i--;
+    if(this.i==0){
+      span.innerHTML="尚无录入";
+    }
+  }
+
+};
+
+  var btn=document.querySelector("#button");
+
+  var content=document.querySelector("#aqi-input");
+ 
+  var show=document.querySelector("#aqi-display");
+
+  //这个写法为什么不可以？？
+  //btn.addEventListener("click",obj.getText(content,show),false)
+  
+
+  btn.onclick=function(){
+    obj.getText(content,show);
+  };
+
+
+  show.onclick=function(event){
+    
+    var target=event.target;//要删除的对象
+    //console.log(target);//div，就是那个要删除的div
+    //console.log(this);//span，就是id=aqi-display的span
+    obj.deleteTag(this,target);
+  }
+
+})();
+
+</script>
+</body>
+</html>
