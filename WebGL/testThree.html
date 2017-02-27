@@ -35,9 +35,9 @@
                     wheel1.position.y = -0.3;
                     wheel1.position.z = 2;
                     scene.add(wheel1);
-                //第二个轮子
+                //第二个轮子 
                     var wheel2 = new THREE.Mesh(
-                        new THREE.TorusGeometry(0.38,0.2,14,20),
+                        new THREE.TorusGeometry(0.4,0.2,14,20),
                         new THREE.MeshLambertMaterial({
                             color: 0x838B8B
                         }));
@@ -46,7 +46,7 @@
                     wheel2.position.z = 2;
                     scene.add(wheel2);
                 //光线
-                    var light = new THREE.DirectionalLight();//平行光
+                    var light = new THREE.DirectionalLight( 0xffffff, 1 );//平行光
                     light.position.set(2,5,3);
                     scene.add(light);
 
