@@ -25,7 +25,7 @@ phantom.outputEncoding="gbk";
 					return JSON.stringify(result,null,4);
 				});
 					//console.log(str);
-				var file=fs.open('result.json','w');
+				var file=fs.open('result2.json','w');
 				file.write(rs);
 				file.close();
 				phantom.exit();
@@ -42,11 +42,11 @@ phantom.outputEncoding="gbk";
 					setInterval(function(){
 						var a=document.getElementsByClassName("load-more-btn").item(0);
 						a.click(); 
-					},250);
+					},200);
 					setTimeout(function(){
 							window.callPhantom();
 						},3000);
-				},50000);
+				},100);
 
 			}
 		});
