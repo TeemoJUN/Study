@@ -13,13 +13,13 @@ phantom.outputEncoding="gbk";
 					result.code=1;
 					result.meg="抓取成功";
 					result.time=2000;
-					result.title=document.getElementsByTagName("title").item(0).innerHTML;
+					result.title=document.querySelectorAll("title").item(0).innerHTML;
 					result.dataList=[];
-					var title_all=document.getElementsByClassName("cal-list-right");
+					var title_all=document.querySelectorAll(".cal-list-right");
 					for(var i=0;i<title_all.length;i++){
 						var re=new Object();
-						re.title=title_all[i].getElementsByClassName("cal-list-title").item(0).innerHTML;
-						re.content=title_all[i].getElementsByClassName("cal-list-abstract").item(0).innerHTML;
+						re.title=title_all[i].querySelectorAll(".cal-list-title").item(0).innerHTML;
+						re.content=title_all[i].querySelectorAll(".cal-list-abstract").item(0).innerHTML;
 						result.dataList.push(re);
 					}
 					return JSON.stringify(result,null,4);
@@ -40,7 +40,7 @@ phantom.outputEncoding="gbk";
 			else{
 				page.evaluateAsync(function(){
 					setInterval(function(){
-						var a=document.getElementsByClassName("load-more-btn").item(0);
+						var a=document.querySelectorAll(".load-more-btn").item(0);
 						a.click(); 
 					},200);
 					setTimeout(function(){
